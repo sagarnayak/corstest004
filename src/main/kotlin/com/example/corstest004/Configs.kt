@@ -5,16 +5,17 @@ import org.springframework.web.reactive.config.CorsRegistry
 import org.springframework.web.reactive.config.EnableWebFlux
 import org.springframework.web.reactive.config.WebFluxConfigurer
 
-//@Configuration
-//@EnableWebFlux
-//class Configs : WebFluxConfigurer {
-//
-//    override fun addCorsMappings(registry: CorsRegistry) {
-//        registry
-//            .addMapping("/**")
-//            .allowedOrigins("https://stackoverflow.com")
-//            .allowedMethods("*")
-//            .allowedHeaders("*")
-//            .maxAge(100)
-//    }
-//}
+@Configuration
+@EnableWebFlux
+class Configs : WebFluxConfigurer {
+
+    override fun addCorsMappings(registry: CorsRegistry) {
+        registry
+            .addMapping("/**")
+            .allowedOrigins("*")
+            .allowedMethods("*")
+            .allowedHeaders("*")
+            .allowCredentials(false)
+            .maxAge(100)
+    }
+}
