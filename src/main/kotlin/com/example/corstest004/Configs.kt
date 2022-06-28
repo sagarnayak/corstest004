@@ -12,10 +12,12 @@ class Configs : WebFluxConfigurer {
     override fun addCorsMappings(registry: CorsRegistry) {
         registry
             .addMapping("/**")
-            .allowedOrigins("*")
-            .allowedMethods("*")
-            .allowedHeaders("*")
-            .allowCredentials(false)
-            .maxAge(100)
+            .allowedOrigins(
+                "https://stackoverflow.com",
+                "https://www.google.com",
+                "http://localhost:4200",
+                "https://00eb-122-163-116-4.ngrok.io"
+            )
+            .allowedMethods("GET", "POST", "OPTIONS", "HEAD")
     }
 }

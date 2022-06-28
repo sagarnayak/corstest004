@@ -1,9 +1,6 @@
 package com.example.corstest004
 
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import java.io.Serializable
 import java.util.*
 
@@ -12,18 +9,17 @@ import java.util.*
  * get method is still showing error.
  */
 
+//@CrossOrigin(origins = ["https://stackoverflow.com"])
 @RestController
 @RequestMapping("/data")
 class ControllerOne {
 
-    @GetMapping("/get")
-//    @CrossOrigin(origins = ["*"], methods = [RequestMethod.GET])
+    @GetMapping
     fun getOne(): GenericResponse {
         return GenericResponse(message = UUID.randomUUID().toString())
     }
 
     @PostMapping
-//    @CrossOrigin(origins = ["*"], methods = [RequestMethod.POST])
     fun postOne(): GenericResponse {
         return GenericResponse(message = UUID.randomUUID().toString())
     }
